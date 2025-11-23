@@ -1,0 +1,69 @@
+{
+  "name": "DoctorAppointment",
+  "type": "object",
+  "properties": {
+    "patient_id": {
+      "type": "string",
+      "description": "Reference to patient"
+    },
+    "patient_name": {
+      "type": "string",
+      "description": "Patient name for easy reference"
+    },
+    "doctor_name": {
+      "type": "string",
+      "description": "Assigned doctor name"
+    },
+    "specialty": {
+      "type": "string",
+      "description": "Doctor's medical specialty"
+    },
+    "appointment_date": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Scheduled appointment date and time"
+    },
+    "appointment_type": {
+      "type": "string",
+      "enum": ["chat", "call", "video", "in-person"],
+      "description": "Type of appointment"
+    },
+    "status": {
+      "type": "string",
+      "enum": ["scheduled", "rescheduled", "completed", "cancelled"],
+      "default": "scheduled",
+      "description": "Appointment status"
+    },
+    "reason": {
+      "type": "string",
+      "description": "Reason for appointment"
+    },
+    "notes": {
+      "type": "string",
+      "description": "Additional notes or instructions"
+    },
+    "duration_minutes": {
+      "type": "number",
+      "default": 30,
+      "description": "Appointment duration in minutes"
+    },
+    "consultation_id": {
+      "type": "string",
+      "description": "Reference to related consultation request"
+    },
+    "symptom_check_id": {
+      "type": "string",
+      "description": "Reference to related symptom check"
+    },
+    "cancellation_reason": {
+      "type": "string",
+      "description": "Reason for cancellation if applicable"
+    }
+  },
+  "required": [
+    "patient_id",
+    "patient_name",
+    "appointment_date",
+    "appointment_type"
+  ]
+}
