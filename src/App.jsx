@@ -4,6 +4,7 @@ import Layout from "./Layout";
 
 // Pages
 import Landing from "./Pages/Landing";
+import Login from "./Pages/Login";
 import Home from "./Pages/Home";
 import About from "./Pages/About";
 import Blog from "./Pages/Blog";
@@ -25,7 +26,7 @@ import { base44 } from "./api/base44Client";
 // Protect routes that require login
 function PrivateRoute({ children }) {
   const token = localStorage.getItem("base44_token");
-  if (!token) return <Navigate to={createPageUrl("Landing")} />;
+  if (!token) return <Navigate to={createPageUrl("Login")} />;
   return children;
 }
 
@@ -35,6 +36,7 @@ export default function App() {
       {/* Public Routes */}
       <Route path="/" element={<Landing />} />
       <Route path="/Landing" element={<Landing />} />
+      <Route path="/Login" element={<Login />} />
 
       {/* Protected Routes wrapped in Layout */}
       <Route
